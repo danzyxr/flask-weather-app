@@ -1,3 +1,3 @@
 # flask-weather-app
 
-Get the temperature of your city
+A simple API call to get the weather of your favorite city.
