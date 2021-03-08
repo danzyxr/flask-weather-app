@@ -1,7 +1,10 @@
 from flask import Flask, render_template, request
+from dotenv import dotenv_values
 import requests
 
 app = Flask(__name__)
+env = dotenv_values(".env")
+api_key = env["API_KEY"]
 
 
 @app.route("/", methods=["GET", "POST"])
@@ -9,7 +12,6 @@ def index():
     if request.method == "POST":
         city = request.form["city"]
         country = request.form["country"]
-        api_key = "dd41675405fe25a39d61e9e6cb8536fa"
 
         weather_url = requests.get(
             f"http://api.openweathermap.org/data/2.5/weather?q={city},{country}&appid={api_key}&units=imperial"
